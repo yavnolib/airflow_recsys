@@ -12,6 +12,11 @@ docker pull yavnolib/air_aaa_mlsd
 * mode = 3: fit baseline with optuna
 * mode = 4: custom run with your params (see 'help')
 
+For example:
+```
+python main.py 4 --lr=0.8 --run_name="custom run"
+```
+
 
 # Help:
 ```
