@@ -146,6 +146,7 @@ def best_model():
     
 if __name__ == '__main__':
     import argparse
+    import os
     parser = argparse.ArgumentParser(description='Run recsys model with mlflow')
     parser.add_argument('mode', type=int, help='Operating modes:\n'
                         '1 - baseline,\n'
@@ -196,8 +197,8 @@ if __name__ == '__main__':
 
 
     user2seen = df_train.groupby('user_index')['node_index'].agg(lambda x: list(set(x)))
-
-    mlflow.set_tracking_uri('http://84.201.128.89:90/')
+    url = os.environ["MLFLOW_UTL"]
+    mlflow.set_tracking_uri(f'http://{url}/')
 
     mlflow.set_experiment('homework-pipeline-ydnikolaev')
     
